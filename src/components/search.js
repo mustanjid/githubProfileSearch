@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./public/style.css";
+import "./style.css";
 
 //Fetch Github API
 const API_URL = "https://api.github.com"; 
@@ -38,8 +38,10 @@ export default function Profile() {
           value={query}
         />
         <h3>Profile/s</h3>
+        <hr></hr>
         <div id="results">
-          <div>
+          <div className="p-3 p-lg-2 d-flex flex-column">
+            <div className="d-flex flex-column flex-md-row mb-5 flex-wrap">
             {results.map((user) => (
               <User
                 key={user.login}
@@ -48,6 +50,7 @@ export default function Profile() {
                 username={user.login}
               />
             ))}
+            </div>
           </div>
         </div>
       </main>
@@ -57,14 +60,28 @@ export default function Profile() {
 
 function User({ avatar, url, username }) {
   return (
-    <div className="user">
-      <img src={avatar} alt="Profile" width="50" height="50" />
+    <div className="">
+      {/* <img src={avatar} alt="Profile" width="50" height="50" />
+      <a href={url} target="_blank" rel="noopener noreferrer">
+        {username}
+      </a> */}
+      <div class="container">
+  <div class="row">
+    <div class="col">
+    <div className="d-flex flex-column align-items-center mx-auto mb-2">
+      <img src={avatar} className="img-fluid img-profile rounded-circle mx-auto mb-2" alt="..."></img>
       <a href={url} target="_blank" rel="noopener noreferrer">
         {username}
       </a>
+      </div>
+    </div>
+  </div>
+</div>
     </div>
   );
 }
+
+
 
 function Form({ onSubmit, onChange, value }) {
   return (
@@ -76,7 +93,7 @@ function Form({ onSubmit, onChange, value }) {
         onChange={onChange}
         value={value}
       />
-      <button type="submit">Search</button>
+      <button type="submit" disabled={!value} className="btn btn-primary">Search</button>
     </form>
   );
 }
