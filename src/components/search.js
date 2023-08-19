@@ -85,6 +85,7 @@ function User({ avatar, url, username }) {
 
 function Form({ onSubmit, onChange, value }) {
   return (
+    <div>
     <form className="search-form" onSubmit={onSubmit}>
       <input
         id="search"
@@ -95,5 +96,7 @@ function Form({ onSubmit, onChange, value }) {
       />
       <button type="submit" disabled={!value} className="btn btn-primary">Search</button>
     </form>
+      <p>Made with ❤️ by Md Al-Mustanjid</p>
+    </div>
   );
 }
