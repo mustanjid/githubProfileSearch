@@ -37,7 +37,7 @@ export default function Profile() {
           onSubmit={onSearchSubmit}
           value={query}
         />
-        <h3>Profile/s</h3>
+        <h3>Users</h3>
         <hr></hr>
         <div id="results">
           <div className="p-3 p-lg-2 d-flex flex-column">
